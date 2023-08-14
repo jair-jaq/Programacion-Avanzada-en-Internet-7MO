@@ -5,7 +5,7 @@
     </head>
         <style>
           #canvas{
-                width: 400px;
+                width: 700px;
                 height: 400px;
                 border: 1px solid black;
 
@@ -19,14 +19,42 @@
             var canvas = document.getElementById("canvas")
             var context = canvas.getContext("2d")
 
-            context.fillStyle = "#6E00FF"
-            context.fillRect(20,10,30,15)
+            context.fillStyle = "#6E00FF";
+            context.fillRect(20,10,30,30);
 
-            context.fillStyle = "#F80032"
-            context.fillRect(40,20,30,15)
+            context.fillStyle = "#F80032";
+            context.fillRect(40,30,30,30);
 
-            context.fillStyle = "#F1ACBD"
-            context.fillRect(60,30,30,15)
+            context.fillStyle = "#F1ACBD";
+            context.fillRect(60,50,30,30);
+
+            context.strokeStyle = "blue";
+            context.beginPath();
+            context.moveTo(185,10);
+            context.lineTo(230,65);
+            context.lineTo(125,65);
+            context.fill();
+            context.stroke();
+            context.closePath();
+
+            context.strokeStyle= "red";
+            context.beginPath();
+            context.moveTo(230,65);
+            context.lineTo(280,120);
+            context.stroke();
+
+            context.beginPath();
+            context.fillStyle = "green";
+            context.arc(115,110, 20, 0, 2* Math.PI);
+            context.fill();
+            context.stroke();
+
+            
+            context.beginPath();
+            context.arc(160,110, 20, 0, 2* Math.PI);
+            context.stroke();
+            
+
 
         </script>
     </html>
