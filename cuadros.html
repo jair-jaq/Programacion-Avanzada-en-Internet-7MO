@@ -5,56 +5,84 @@
     </head>
         <style>
           #canvas{
-                width: 700px;
-                height: 400px;
+                width: 500px;
+                height: 500px;
                 border: 1px solid black;
+                background-color: coral;
 
           } 
         </style>
         <body>
-            <canvas id= "canvas"></canvas>
+            <img id= "minion" src="minion.png" alt="Minion" style="display: none;">
+            <canvas id= "canvas" width="500" height="500"></canvas>
         </body>
 
         <script>
             var canvas = document.getElementById("canvas")
-            var context = canvas.getContext("2d")
+            var ctx = canvas.getContext("2d")
 
-            context.fillStyle = "#6E00FF";
-            context.fillRect(20,10,30,30);
+           ctx.fillStyle = "#6E00FF";
+            ctx.fillRect(20,10,30,30);
 
-            context.fillStyle = "#F80032";
-            context.fillRect(40,30,30,30);
+            ctx.fillStyle = "#F80032";
+            ctx.fillRect(40,30,30,30);
 
-            context.fillStyle = "#F1ACBD";
-            context.fillRect(60,50,30,30);
+            ctx.fillStyle = "#F1ACBD";
+            ctx.fillRect(60,50,30,30);
 
-            context.strokeStyle = "blue";
-            context.beginPath();
-            context.moveTo(185,10);
-            context.lineTo(230,65);
-            context.lineTo(125,65);
-            context.fill();
-            context.stroke();
-            context.closePath();
+            ctx.strokeStyle = "blue";
+            ctx.beginPath();
+            ctx.moveTo(185,10);
+            ctx.lineTo(230,65);
+            ctx.lineTo(125,65);
+            ctx.fill();
+            ctx.stroke();
+            ctx.closePath();
 
-            context.strokeStyle= "red";
-            context.beginPath();
-            context.moveTo(230,65);
-            context.lineTo(280,120);
-            context.stroke();
+            ctx.strokeStyle= "red";
+            ctx.beginPath();
+            ctx.moveTo(230,65);
+            ctx.lineTo(280,120);
+            ctx.stroke();
 
-            context.beginPath();
-            context.fillStyle = "green";
-            context.arc(115,110, 20, 0, 2* Math.PI);
-            context.fill();
-            context.stroke();
+            ctx.beginPath();
+            ctx.fillStyle = "green";
+            ctx.arc(115,110, 20, 0, 2* Math.PI);
+            ctx.fill();
+            ctx.stroke();
 
             
-            context.beginPath();
-            context.arc(160,110, 20, 0, 2* Math.PI);
-            context.stroke();
-            
+            ctx.beginPath();
+            ctx.arc(160,110, 20, 0, 2* Math.PI);
+            ctx.stroke();
+
+            ctx.font = "35px Arial";
+            ctx.fillStyle = "white";
+            ctx.fillText("¡Hola, mundo!", 5, 160);
+            ctx.strokeStyle = "black";
+            ctx.lineWidth = .9;
+            ctx.strokeText("¡Hola, mundo!", 5, 160);
+
+            const grd = ctx.createLinearGradient(30, 60, 100, 50);
+            grd.addColorStop(0, "black");
+            grd.addColorStop(.5, "blue");
+            grd.addColorStop(1, "pink");
+            ctx.fillStyle = grd;
+            ctx.fillRect(20, 180, 130, 80);
 
 
+            var grd2 = ctx.createRadialGradient(265, 220, 10, 265, 220, 80);
+            grd2.addColorStop(0, "blue");
+            grd2.addColorStop(0.5, "white");
+            grd2.addColorStop(1, "green");
+            ctx.fillStyle = grd2;
+            ctx.fillRect(200, 180, 130, 80);
+
+            var Image = document.getElementById("minion");
+            Image.onload = function(){
+                ctx.drawImage(Image, 320, 20, 150, 150);
+            }
+
+            Image.src = "minion.png";
         </script>
     </html>
