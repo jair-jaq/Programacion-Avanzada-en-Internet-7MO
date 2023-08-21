@@ -21,7 +21,19 @@
             var canvas = document.getElementById("canvas")
             var ctx = canvas.getContext("2d")
 
-           ctx.fillStyle = "#6E00FF";
+            canvas.addEventListener("click", (e) => {
+                console.log("Hola")
+                console.log( e )
+
+                    
+                ctx.beginPath();
+                ctx.fillStyle = "rgba(90, 98, 220, 0.8)";
+                ctx.arc(e.layerX,e.layerY, 50, 0, 2* Math.PI);
+                ctx.fill();
+                ctx.stroke();
+        })
+
+          /* ctx.fillStyle = "#6E00FF";
             ctx.fillRect(20,10,30,30);
 
             ctx.fillStyle = "#F80032";
@@ -84,5 +96,7 @@
             }
 
             Image.src = "minion.png";
+            */
+
         </script>
     </html>
